@@ -1,3 +1,6 @@
+// Asegurando que el archivo esté vinculado a depositar.html y Banco.html
+// No se requiere enlace directo en JavaScript, pero se puede agregar un comentario para referencia.
+
 function guardarSaldo() {
     let saldo = document.getElementById('saldo').value;
     if (saldo) {
@@ -23,5 +26,10 @@ function retirarSaldo() {
         document.getElementById('mensaje').innerText = "Nuevo saldo: " + nuevoSaldo;
 }
 
-
-
+function depositarSaldo() {
+    let depositar = parseFloat(document.getElementById('deposito').value);
+    let saldo = parseFloat(localStorage.getItem('saldo'));
+        let nuevoSaldo = saldo + depositar;
+        localStorage.setItem('saldo', nuevoSaldo);
+        document.getElementById('mensaje').innerText = "Nuevo saldo: " + nuevoSaldo;
+}
